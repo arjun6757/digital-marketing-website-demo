@@ -35,7 +35,7 @@ li a::after{
     display: block;
     height: 4px;
     width: 0;
-    background-color: #98dafc;
+    background-color: #c4c4f7;
     /* #c4c4f7 */
     transition: all .5s;
 }
