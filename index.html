@@ -18,6 +18,35 @@
     }
 
     @media only screen and (max-width: 1080px) {
+        main {
+            margin-top: 50px;
+            display: flex;
+            flex-direction: row;
+            height: auto;
+            padding: 0px;
+        }
+
+        .content-left {
+            margin: 0px;
+            padding: 20px;
+            text-wrap: wrap;
+            width: 40%;
+        }
+
+        .hero-img {
+            width: 100%;
+        }
+
+        .content-right {
+            margin: 0px;
+            display: block;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+    }
+
+    @media only screen and (max-width: 700px) {
         .logo {
             margin-top: 50px;
         }
@@ -36,6 +65,34 @@
             align-items: center;
             text-align: center;
             justify-content: center;
+        }
+
+        .dropdown {
+            display: block;
+            position: relative;
+        }
+
+        .more {
+            display: none;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            float: left;
+            padding: 5px;
         }
 
         main {
@@ -62,39 +119,6 @@
             width: 100%;
             padding: 50px;
         }
-
-        .content-right {
-            display: block;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-    }
-
-    @media only screen and (max-width: 500px) {
-        .dropdown {
-            display: block;
-            position: relative;
-        }
-
-        .more {
-            display: none;
-        }
-
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background-color: #fff;
-            box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
     }
 </style>
 
@@ -114,8 +138,8 @@
                         <li><a href="">FAQ</a></li>
                     </ul>
                 </li>
-                <li class="dropdown">
-                    <a href="">More</a>
+                <li id="more-btn" class="dropdown">
+                    <a>More</a>
                     <ul class="dropdown-menu">
                         <li><a href="">About</a></li>
                         <li><a href="">Contact</a></li>
@@ -135,10 +159,27 @@
             <button class="cta">Learn More</button>
         </div>
         <div class="content-right">
-            <img src="./images/background.webp" alt="" width="1080px" class="hero-img">
+            <img src="./images/background.webp" alt="" width="auto" class="hero-img">
         </div>
     </main>
 
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#more-btn").click(function () {
+                $("#dropdown-menu").toggle();
+            });
+
+            // Hide the dropdown menu when clicking outside of it
+            $(document).click(function (event) {
+                if (!$(event.target).closest("#more-btn").length && !$(event.target).closest("#dropdown-menu").length) {
+                    $("#dropdown-menu").hide();
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
