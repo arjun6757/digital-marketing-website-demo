@@ -1,57 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Design</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
 </head>
 
 <style>
-    @media only screen and (max-width: 1080px) {
+    .dropdown {
+        display: none;
+    }
 
-        .logo{
+    @media only screen and (max-width: 1080px) {
+        .logo {
             margin-top: 50px;
         }
 
-        header{
+        header {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
-        
-        header nav{
+
+        header nav {
             width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
         }
 
-        main{
+        main {
             margin-top: 50px;
             display: grid;
             grid-template-columns: 1fr;
             grid-template-rows: auto;
         }
 
-        .content-left{
-            margin: 50px 20px;
+        .content-left {
+            margin: 0px;
+            padding: 20px;
             text-wrap: wrap;
             width: 100%;
             text-align: center;
         }
 
-        .content-left p{
+        .content-left p {
             /* border: 1px solid red; */
             padding: 0px 50px
         }
 
-        .hero-img{
+        .hero-img {
             width: 100%;
             padding: 50px;
         }
 
+        .content-right {
+            display: block;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+    }
+
+    @media only screen and (max-width: 500px) {
+        .dropdown {
+            display: block;
+            position: relative;
+        }
+
+        .more {
+            display: none;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
     }
 </style>
 
@@ -64,9 +107,21 @@
             <ul>
                 <li><a href="">Home</a></li>
                 <li><a href="">Service</a></li>
-                <li><a href="">About</a></li>
-                <li><a href="">Contact</a></li>
-                <li><a href="">FAQ</a></li>
+                <li class="more">
+                    <ul>
+                        <li><a href="">About</a></li>
+                        <li><a href="">Contact</a></li>
+                        <li><a href="">FAQ</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="">More</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="">About</a></li>
+                        <li><a href="">Contact</a></li>
+                        <li><a href="">FAQ</a></li>
+                    </ul>
+                </li>
                 <li><a href="" class="signup-btn">Sign Up</a></li>
             </ul>
         </nav>
@@ -75,13 +130,15 @@
         <div class="content-left">
             <h1>Digital</h1>
             <h2>Marketing</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint quam dolores cupiditate numquam. Quae, perspiciatis maiores repellat minus tempora aliquam et incidunt? Ducimus, consequatur nostrum!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint quam dolores cupiditate numquam. Quae,
+                perspiciatis maiores repellat minus tempora aliquam et incidunt? Ducimus, consequatur nostrum!</p>
             <button class="cta">Learn More</button>
         </div>
         <div class="content-right">
             <img src="./images/background.webp" alt="" width="1080px" class="hero-img">
         </div>
     </main>
-    
+
 </body>
+
 </html>
